@@ -1,22 +1,21 @@
-import axios from 'axios';
-import React, {Component, useEffect} from 'react';
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
+// pages
+import Home from '../pages/Home';
+import NotFound from '../pages/NotFound';
 
-const App = () => {
-    useEffect( () => {
-        axios.get("api")
-        .then( response => {
-            console.info(response);
-        }) 
-        .catch( e => console.error(e));
-    }, []);
+function App() {
     return (
-        <div>
-            <h1>Hello World!</h1>
-            <h3>hi, guys</h3>
-        </div>
-        
-    )
-} 
+        <BrowserRouter>
+            <Switch>
+                <Route exact path="/" component={Home}/>
+                <Route  component={NotFound}/>
+            </Switch>
+        </BrowserRouter>
+    );
+}
 
 export default App;
+
+

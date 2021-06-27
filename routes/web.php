@@ -13,16 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// list user
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-// create user
-
-Route::get("/login", function () {
-    return view("login");
-});
-
-// delete user
+Route::view("/{path?}", "app");
