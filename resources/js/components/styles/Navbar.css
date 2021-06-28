@@ -1,0 +1,31 @@
+.Navbar {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    background-color:#067bc2;
+    padding: 20px 0 ; 
+    box-shadow: 5px 0px 8px 10px #888888;
+    z-index: 9;
+}
+
+
+.Navbar-title  {
+    align-self: flex-start;
+    color: white;
+    font-family: 'Bungee', cursive;
+    
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    padding: 0 10px;
+    font-size: 1.2rem;
+}
+
+a:hover {
+    color: #8bd3f8;
+}
