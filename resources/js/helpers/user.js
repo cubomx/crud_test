@@ -14,11 +14,25 @@ const deleteUser = (id, msg,  callback) => {
             console.error(error)
         })
     }
+}
 
-    
+const addUser = (state, callback) => {
+    var bodyFormData = new FormData();
+    bodyFormData.append('name', state.name);
+    bodyFormData.append('email', state.email);
+    bodyFormData.append('password', state.password);
+
+    axios.post("api/users", bodyFormData, { headers: {
+        'Content-Type': 'multipart/form-data'
+    }})
+    .then(response => {
+        callback();
+        alert("User created")
+    })
+    .catch(error => alert("An error occurred"));
 }
 
 
 
 
-export { deleteUser };
+export { deleteUser, addUser };

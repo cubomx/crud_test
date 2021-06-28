@@ -1,9 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import Button from '@material-ui/core/Button';
-import { DataGrid } from '@material-ui/data-grid';
 import axios from 'axios';
+// material ui
+import { Button} from '@material-ui/core';
+import { DataGrid } from '@material-ui/data-grid';
+// components
+import Form from '../components/Form';
 // helpers
-import { deleteUser } from '../helpers/user';
+import { deleteUser, addUser } from '../helpers/user';
 
 const msgDelete = 'Are you sure you want to delete this user?';
 
@@ -37,25 +40,24 @@ export default function Home() {
     },
   ];
   
-  
-  
   useEffect( () => {
     getUsers();
-  }, []);  
+  }, []); 
+  
 
-  if (users){
+  if (users.length > 0){
       return (
         <div style={{ height: '100%', width: '100%' }}>
-        <div>
-            
-        </div>
-        <DataGrid
-            rows={users}
-            columns={columns}
-            pageSize={10}
-            disableSelectionOnClick
-        />
-        </div>
+          <Form callback={getUsers} submitAction={addUser}  />
+          <div style={{ height: '80%', width: '100%' }}>
+            <DataGrid
+                rows={users}
+                columns={columns}
+                pageSize={10}
+                disableSelectionOnClick
+            />
+          </div>
+          </div>
       )
   }
 
